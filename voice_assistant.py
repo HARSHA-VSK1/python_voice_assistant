@@ -58,10 +58,12 @@ def takeCommand():
     return query
 
 def sendEmail(to,content):
+    with open('pass.txt') as file:
+        password = file.read()
     server = smtplib.SMTP('smtp.gmail.com',587)
     server.ehlo()
     server.starttls()
-    server.login('harshavsk2002@gmail.com','Harsha$235')
+    server.login('harshavsk2002@gmail.com',password)
     server.sendmail('harshavsk2002@gmail.com',to,content)
     server.close()
 
@@ -96,6 +98,7 @@ if __name__=='__main__':
         
         elif 'open stack' in query:
             webbrowser.open('https://www.stackoverflow.com/')
+
         elif 'time' in query:
             strTime= datetime.datetime.now().strftime("%M:%M:%S")
             speak(f"The time is {strTime}")
