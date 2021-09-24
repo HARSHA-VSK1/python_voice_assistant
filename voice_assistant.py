@@ -17,7 +17,7 @@ voices= engine.getProperty('voices')
 #print(voices[1].id)
 engine.setProperty('voice',voices[1].id)
 
-
+# to speak the desired output by the machine
 def speak(audio):
     engine.say(audio)
     engine.runAndWait()
@@ -36,7 +36,7 @@ def wishme():
     
     speak("Hello this is jaya")
 
-
+# to take voice command
 def takeCommand():
     #it takes microphone input
     r=sr.Recognizer()
@@ -67,6 +67,7 @@ def sendEmail(to,content):
     server.sendmail('harshavsk2002@gmail.com',to,content)
     server.close()
 
+# to get results from google using web parsing
 def google_query(quer):
     url=f"https://www.google.com/search?q={quer}"
     result=requests.get(url)
